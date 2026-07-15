@@ -1,0 +1,28 @@
+.content{
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#laptop, #mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+span{
+    margin-top: 5px;
+    font-weight: bold;
+}
+button{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(18, 243, 18);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
