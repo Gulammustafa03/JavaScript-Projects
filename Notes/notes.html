@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Notes/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Notes</h2>
+
+        <form action="" id="notes">
+            <input type="text" id="noteInput" placeholder="Enter you note..">
+
+            <button id="add">Add Note</button>
+        </form>
+        <br>
+        <button id="ClearBtn">Clear All</button>
+
+        <h3>Total Notes: <span id="count">0</span></h3>
+
+        <ul id="notelist"></ul>
+    </div>
+
+    <script>
+        const input=document.getElementById('noteInput');
+        const form=document.getElementById('notes');
+        const clearBtn=document.getElementById('ClearBtn');
+        const count=document.getElementById('count');
+        const list=document.getElementById('notelist');
+        const add=document.getElementById('add');
+
+        let total=0;
+        form.addEventListener('submit',function(e){
+            e.preventDefault();
+            if(input.value.trim()===""){
+                alert("Notes is empty");
+                return;
+            }
+
+            // create list
+            const li=document.createElement("li");
+
+            // create span tag
+            const span=document.createElement("span");
+            span.innerText=input.value;
+
+            // create delete button
+            const deleteBtn=document.createElement("button");
+            deleteBtn.innerText="Delete"
+            deleteBtn.className="deleteBtn"
+
+            deleteBtn.addEventListener("click",function(){
+                li.remove()
+                total--;
+                count.innerText=total;
+            })
+            li.append(span);
+            li.append(deleteBtn);
+
+            list.append(li);
+            total++;
+            count.innerText=total;
+
+            input.value=""
+        })
+
+        clearBtn.addEventListener("click",function(){
+            // while(list.firstChild){
+            //     list.firstChild.remove()
+            //     total--;
+            // }
+            list.innerHTML="";
+            total=0;
+            count.innerText=total;
+        })
+
+
+    </script>
+</body>
+</html>
